@@ -107,5 +107,4 @@ ENV/
 # Rope project settings
 .ropeproject
 myenv
-service
 .flake8
