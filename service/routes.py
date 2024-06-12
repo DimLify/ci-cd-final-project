@@ -7,7 +7,6 @@ from service.common import status
 
 COUNTER = {}
 
-
 ############################################################
 # Health Endpoint
 ############################################################
@@ -15,7 +14,6 @@ COUNTER = {}
 def health():
     """Health Status"""
     return jsonify(dict(status="OK")), status.HTTP_200_OK
-
 
 ############################################################
 # Index page
@@ -31,7 +29,6 @@ def index():
         url=url_for("list_counters", _external=True),
     )
 
-
 ############################################################
 # List counters
 ############################################################
@@ -43,7 +40,6 @@ def list_counters():
     counters = [dict(name=count[0], counter=count[1]) for count in COUNTER.items()]
 
     return jsonify(counters)
-
 
 ############################################################
 # Create counters
@@ -65,7 +61,6 @@ def create_counters(name):
         {"Location": location_url},
     )
 
-
 ############################################################
 # Read counters
 ############################################################
@@ -79,7 +74,6 @@ def read_counters(name):
 
     counter = COUNTER[name]
     return jsonify(name=name, counter=counter)
-
 
 ############################################################
 # Update counters
@@ -97,7 +91,6 @@ def update_counters(name):
     counter = COUNTER[name]
     return jsonify(name=name, counter=counter)
 
-
 ############################################################
 # Delete counters
 ############################################################
@@ -110,7 +103,6 @@ def delete_counters(name):
         COUNTER.pop(name)
 
     return "", status.HTTP_204_NO_CONTENT
-
 
 ############################################################
 # Utility for testing
